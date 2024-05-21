@@ -6,9 +6,13 @@ use App\Models\UserModel;
 
 class Login extends BaseController
 {
-    public function index(): string
+    public function index(): string|\CodeIgniter\HTTP\RedirectResponse
     {
-        return view('/pages/login');
+        if (session()->get('isLoggedIn')) {
+            return redirect()->to('/');
+        } else {
+            return view('/pages/login');
+        }
     }
 
     public function login(): \CodeIgniter\HTTP\RedirectResponse
@@ -20,7 +24,7 @@ class Login extends BaseController
             session()->set([
                 'id' => $user['id'],
                 'email' => $user['email'],
-                'name' => $user['name'],
+                'name' => $user['username'],
                 'isLoggedIn' => true
             ]);
 
@@ -30,5 +34,11 @@ class Login extends BaseController
             return redirect()->to('/login');
         }
 
+    }
+
+    public function logout(): \CodeIgniter\HTTP\RedirectResponse
+    {
+        session()->destroy();
+        return redirect()->to('/login');
     }
 }
