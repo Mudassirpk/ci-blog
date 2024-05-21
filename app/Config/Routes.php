@@ -14,3 +14,6 @@ $routes->post('create', 'CreatePost::create');
 // auth routes
 $routes->get('/login', 'Login::index');
 $routes->post('/login', 'Login::login');
+$routes->get('/logout', 'Login::logout');
+$routes->get('/signup', 'Signup::index');
+$routes->post('/signup', 'Signup::signup');
