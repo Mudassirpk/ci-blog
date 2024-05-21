@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?= base_url() ?>css/style.css">
+    <title>Signup</title>
+</head>
+
+<body class="w-full min-h-screen flex flex-col">
+<main class="w-full px-6 flex-1">
+    <section class="w-full h-screen flex justify-center items-center">
+        <form action="/signup" class="w-[400px] p-4 rounded-xl shadow-gray-300 shadow-sm border-t border-t-indigo-600"
+              method="post">
+            <h1 class="text-2xl text-semibold font-semibold text-center text-indigo-600 mb-4">Signup</h1>
+            <div class="flex flex-col gap-4">
+                <label class="flex flex-col space-y-2">
+                    Username
+                    <input required type="text" placeholder="e.g. Ahmed" name="username"
+                           class="border border-gray-300 p-2 rounded-xl mt-2">
+                </label>
+                <label class="flex flex-col space-y-2">
+                    Email
+                    <input required type="email" placeholder="example@gmail.com" name="email"
+                           class="border border-gray-300 p-2 rounded-xl mt-2">
+                </label>
+                <label class="flex flex-col space-y-2">
+                    Password
+                    <input required type="password" placeholder="********" name="password"
+                           class="border border-gray-300 p-2 rounded-xl mt-2">
+                </label>
+                <label class="flex flex-col space-y-2">
+                    Confirm Password
+                    <input required type="password" placeholder="********" name="confirm_password"
+                           class="border border-gray-300 p-2 rounded-xl mt-2">
+                </label>
+                <button type="submit" class="bg-indigo-600 px-4 py-2 rounded-xl hover:bg-indigo-500 text-white">Signup
+                </button>
+                <?php if (isset($validation)): ?>
+                    <p class="text-lg text-red-500 font-semibold">
+                        <?= str_replace('_', ' ', $validation->listErrors()) ?>
+                    </p>
+                <?php endif; ?>
+                <a href="/login" class="text-gray-700 my-2 font-semibold">Already have an account? <span
+                            class="text-indigo-600">login here</span></a>
+
+            </div>
+        </form>
+    </section
+</main>
+</body>
+</html>
+
