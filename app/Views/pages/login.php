@@ -26,6 +26,7 @@
                 </label>
                 <button type="submit" class="bg-indigo-600 px-4 py-2 rounded-xl hover:bg-indigo-500 text-white">Login
                 </button>
+                <a href="/signup" class="text-gray-700 my-2 font-semibold">Don't have an account? <span class="text-indigo-600">signup here</span></a>
                 <?php if (session()->getFlashdata('error')): ?>
                     <div><?= session()->getFlashdata('error') ?></div>
                 <?php endif; ?>
