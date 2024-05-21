@@ -20,6 +20,7 @@ class CreatePost extends BaseController
         $data['title'] = 'Create Post';
         if ($this->request->getMethod() == "POST") {
             $new_post = new PostsModel();
+            $_POST['author_id'] = session()->get('id');
             $new_post->save($_POST);
             $data['newpost'] = $_POST;
         }
